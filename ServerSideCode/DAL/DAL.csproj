@@ -7,8 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DALApi\" />
-    <Folder Include="DALImplementation\" />
+    <Compile Remove="DALApi\**" />
+    <Compile Remove="DALImplementation\**" />
+    <EmbeddedResource Remove="DALApi\**" />
+    <EmbeddedResource Remove="DALImplementation\**" />
+    <None Remove="DALApi\**" />
+    <None Remove="DALImplementation\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,6 +21,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
   </ItemGroup>
 
 </Project>
