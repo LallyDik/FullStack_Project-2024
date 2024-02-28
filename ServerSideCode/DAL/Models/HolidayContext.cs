@@ -23,7 +23,7 @@ public partial class HolidayContext : DbContext
     {
         modelBuilder.Entity<Address>(entity =>
         {
-            entity.HasKey(e => e.Code).HasName("PK__Address__A25C5AA6F8809642");
+            entity.HasKey(e => e.Code).HasName("PK__tmp_ms_x__A25C5AA63A47A437");
 
             entity.ToTable("Address");
 
@@ -31,6 +31,16 @@ public partial class HolidayContext : DbContext
             entity.Property(e => e.Street)
                 .IsRequired()
                 .HasMaxLength(50);
+
+            entity.HasOne(d => d.RegionCodeNavigation).WithMany(p => p.Addresses)
+                .HasForeignKey(d => d.RegionCode)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Address_Regions");
+
+            entity.HasOne(d => d.TownCodeNavigation).WithMany(p => p.Addresses)
+                .HasForeignKey(d => d.TownCode)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Address_Towns");
         });
 
         modelBuilder.Entity<HolidayCottage>(entity =>
@@ -43,16 +53,6 @@ public partial class HolidayContext : DbContext
                 .HasForeignKey(d => d.AddressCode)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_HolidayCottages_Address");
-
-            entity.HasOne(d => d.RegionCodeNavigation).WithMany(p => p.HolidayCottages)
-                .HasForeignKey(d => d.RegionCode)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_HolidayCottages_Regions");
-
-            entity.HasOne(d => d.TownCodeNavigation).WithMany(p => p.HolidayCottages)
-                .HasForeignKey(d => d.TownCode)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_HolidayCottages_Towns");
         });
 
         modelBuilder.Entity<Region>(entity =>
@@ -72,6 +72,11 @@ public partial class HolidayContext : DbContext
                 .IsRequired()
                 .HasMaxLength(50)
                 .HasColumnName("Town");
+
+            entity.HasOne(d => d.RegionCodeNavigation).WithMany(p => p.Towns)
+                .HasForeignKey(d => d.RegionCode)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Town_Regions");
         });
 
         OnModelCreatingPartial(modelBuilder);

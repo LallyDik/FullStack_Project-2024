@@ -9,5 +9,9 @@ public partial class Town
 
     public string Town1 { get; set; }
 
-    public virtual ICollection<HolidayCottage> HolidayCottages { get; set; } = new List<HolidayCottage>();
+    public int RegionCode { get; set; }
+
+    public virtual ICollection<Address> Addresses { get; set; } = new List<Address>();
+
+    public virtual Region RegionCodeNavigation { get; set; }
 }
