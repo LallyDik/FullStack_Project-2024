@@ -1,6 +1,7 @@
 ﻿using Common;
 using DAL.DALApi;
 using DAL.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,28 +12,14 @@ namespace DAL.DALImplementation;
 
 public class TownRepo : ITownRepo
 {
-    public Task<Town> AddAsync(Town entity)
+    HolidayContext Context;
+    public TownRepo(HolidayContext context)
     {
-        throw new NotImplementedException();
+        Context = context;
     }
 
-    public Task<Town> DeleteAsync(int id)
+    public async Task<List<Town>> GetAllAsync(BaseQueryParams queryParams)
     {
-        throw new NotImplementedException();
-    }
-
-    public Task<List<Town>> GetAllAsync(BaseQueryParams queryParams)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<Town> GetSingleAsync(int id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<Town> UpdateAsync(Town entity)
-    {
-        throw new NotImplementedException();
+        return await Context.Towns.ToListAsync();
     }
 }

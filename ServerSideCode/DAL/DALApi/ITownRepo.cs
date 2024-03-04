@@ -8,6 +8,6 @@ using System.Threading.Tasks;
 
 namespace DAL.DALApi;
 
-public interface ITownRepo:IRepository<Town>
+public interface ITownRepo:IGetRepo<Town>
 {
 }

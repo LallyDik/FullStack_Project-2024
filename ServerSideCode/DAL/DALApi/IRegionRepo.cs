@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.DALApi;
 
-public interface IRegionRepo : IRepository<Region>
+public interface IRegionRepo : IGetRepo<Region>
 {
 
 }
