@@ -1,4 +1,5 @@
-﻿using DAL.Models;
+﻿using Common;
+using DAL.DALModels;
 using DBAcsess;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL.DALApi;
 
-public interface ITownRepo:IGetRepo<Town>
+public interface ITownRepo
 {
+    Task<List<Town>> GetAllAsync(int regionCode);
 }

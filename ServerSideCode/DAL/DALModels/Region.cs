@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DAL.Models;
+namespace DAL.DALModels;
 
 public partial class Region
 {
     public int Code { get; set; }
 
-    public string Rgion { get; set; }
+    public string RegionName { get; set; }
 
     public virtual ICollection<Address> Addresses { get; set; } = new List<Address>();
 

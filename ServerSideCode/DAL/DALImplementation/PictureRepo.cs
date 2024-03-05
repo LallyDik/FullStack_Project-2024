@@ -10,18 +10,16 @@ using System.Threading.Tasks;
 
 namespace DAL.DALImplementation;
 
-public class TownRepo : ITownRepo
+public class PictureRepo : IPicturesRepo
 {
     HolidayContext Context;
-    public TownRepo(HolidayContext context)
+    public PictureRepo(HolidayContext context)
     {
         Context = context;
     }
-
-
-    public async Task<List<Town>> GetAllAsync(int regionCode)
+    public async Task<List<Picture>> GetAllAsync(int cottageCode)
     {
-        var lst = await Context.Towns.ToListAsync();
-        return lst.Where(x => x.RegionCode == regionCode).ToList(); ;
+        var lst = await Context.Pictures.ToListAsync();
+        return lst.Where(p => p.CottgeCode == cottageCode).ToList();
     }
 }

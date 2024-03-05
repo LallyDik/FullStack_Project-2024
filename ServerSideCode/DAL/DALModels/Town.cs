@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DAL.Models;
+namespace DAL.DALModels;
 
 public partial class Town
 {
     public int Code { get; set; }
 
-    public string Town1 { get; set; }
+    public string TownName { get; set; }
 
     public int RegionCode { get; set; }
 
