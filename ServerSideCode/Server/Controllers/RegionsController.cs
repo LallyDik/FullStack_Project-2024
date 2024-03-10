@@ -8,6 +8,7 @@ namespace Server.Controllers
     [ApiController]
     public class RegionsController : ControllerBase
     {
+<<<<<<< HEAD
         IRegionRepoB regionRepoB;
 
         public RegionsController(IRegionRepoB regionRepoB) 
@@ -20,5 +21,19 @@ namespace Server.Controllers
         {
             return await regionRepoB.GetAllRegionsAsync();
         }
+=======
+        IRegionsRepo regionsRepo;
+        public RegionsController(IRegionsRepo regionsRepo)
+        {
+            this.regionsRepo = regionsRepo;
+        }
+
+        [HttpGet]
+        public async Task<List<Regions>> GetAllRegionsAsync()
+        {
+            return await regionsRepo.GetAllRegionsAsync();
+        }
+       
+>>>>>>> f525bc9ace61a3de7c665297e90bfade1d6e6497
     }
 }

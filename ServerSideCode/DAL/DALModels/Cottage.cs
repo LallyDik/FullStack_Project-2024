@@ -9,10 +9,6 @@ public partial class Cottage
 
     public string CottageName { get; set; }
 
-    public int RegionCode { get; set; }
-
-    public int TownCode { get; set; }
-
     public int AddressCode { get; set; }
 
     public int NumOfBeds { get; set; }
@@ -23,9 +19,13 @@ public partial class Cottage
 
     public int PriceToNight { get; set; }
 
+<<<<<<<< HEAD:ServerSideCode/DAL/DALModels/Cottage.cs
     public virtual ICollection<Picture> Pictures { get; set; } = new List<Picture>();
+========
+    public string Description { get; set; }
 
-    public virtual Region RegionCodeNavigation { get; set; }
+    public virtual Address AddressCodeNavigation { get; set; }
+>>>>>>>> f525bc9ace61a3de7c665297e90bfade1d6e6497:ServerSideCode/DAL/DALModels/HolidayCottage.cs
 
-    public virtual Town TownCodeNavigation { get; set; }
+    public virtual ICollection<Picture> Pictures { get; set; } = new List<Picture>();
 }

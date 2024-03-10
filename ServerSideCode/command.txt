@@ -1,4 +1,8 @@
 ﻿
 
+<<<<<<< HEAD
 Scaffold-DbContext 'Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\FinalProject\DB\DataBase.mdf;Integrated Security=True;Connect Timeout=30' Microsoft.EntityFrameworkCore.SqlServer –Context HelpContext -OutputDir Models  -Force -NoOnConfiguring
+=======
+Scaffold-DbContext 'Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\FullStack_project-2024\DB\DataBase.mdf;Integrated Security=True;Connect Timeout=30' Microsoft.EntityFrameworkCore.SqlServer –Context HolidayContext -OutputDir DALModels  -Force -NoOnConfiguring
+>>>>>>> f525bc9ace61a3de7c665297e90bfade1d6e6497
 
