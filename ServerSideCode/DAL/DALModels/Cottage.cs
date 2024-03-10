@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DAL.Models;
+namespace DAL.DALModels;
 
-public partial class HolidayCottage
+public partial class Cottage
 {
+    public int Code { get; set; }
+
     public string CottageName { get; set; }
 
     public int RegionCode { get; set; }
@@ -19,7 +21,9 @@ public partial class HolidayCottage
 
     public int Stars { get; set; }
 
-    public virtual Address AddressCodeNavigation { get; set; }
+    public int PriceToNight { get; set; }
+
+    public virtual ICollection<Picture> Pictures { get; set; } = new List<Picture>();
 
     public virtual Region RegionCodeNavigation { get; set; }
 
