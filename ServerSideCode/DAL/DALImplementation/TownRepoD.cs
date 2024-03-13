@@ -10,22 +10,21 @@ namespace DAL.DALImplementation;
 
 public class TownRepoD : ITownRepoD
 {
-    CottagesContext Context = new CottagesContext();
+    CottagesContext Context;
 
-    public TownRepoD()
+    public TownRepoD(CottagesContext context)
     {
+        Context = context;
     }
-
-    //public TownRepoD(CottagesContext context)
-    //{
-    //    Context = context;
-    //}
-
 
     public async Task<List<Town>> GetAllTownsAsync(int regionCode)
     {
         var towns = await Context.Towns.ToListAsync();
         var t = towns.Where(t => t.RegionCode == regionCode).ToList();
         return towns.Where(t => t.RegionCode == regionCode).ToList();
+    }
+    public string GetTownName(int townCode)
+    {
+        return Context.Towns.Where(t => t.Code == townCode).FirstOrDefault().TownName;
     }
 }

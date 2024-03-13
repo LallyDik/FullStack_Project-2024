@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+>>>>>>> f525bc9ace61a3de7c665297e90bfade1d6e6497
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.14">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

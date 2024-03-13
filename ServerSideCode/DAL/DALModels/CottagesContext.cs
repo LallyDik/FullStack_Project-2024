@@ -25,7 +25,7 @@ public partial class CottagesContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=H:\\FullStack_project-2024\\DB\\DataBase.mdf;Integrated Security=True;Connect Timeout=30");
+        => optionsBuilder.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\הורוביץ לאה\\Desktop\\FullStack_project-2024\\DB\\DataBase.mdf\";Integrated Security=True;Connect Timeout=30");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -36,7 +36,11 @@ public partial class CottagesContext : DbContext
             entity.Property(e => e.Code).ValueGeneratedNever();
             entity.Property(e => e.CottageName)
                 .IsRequired()
-                .HasMaxLength(50);
+                .HasMaxLength(50)
+                .UseCollation("SQL_Latin1_General_CP1_CI_AS");
+            entity.Property(e => e.Description)
+                .UseCollation("SQL_Latin1_General_CP1_CI_AS")
+                .HasColumnType("text");
 
             entity.HasOne(d => d.RegionCodeNavigation).WithMany(p => p.Cottages)
                 .HasForeignKey(d => d.RegionCode)
@@ -55,7 +59,8 @@ public partial class CottagesContext : DbContext
 
             entity.Property(e => e.PicturesPath)
                 .IsRequired()
-                .HasMaxLength(50);
+                .HasMaxLength(50)
+                .UseCollation("SQL_Latin1_General_CP1_CI_AS");
 
             entity.HasOne(d => d.CottageCodeNavigation).WithMany(p => p.Pictures)
                 .HasForeignKey(d => d.CottageCode)
@@ -69,7 +74,8 @@ public partial class CottagesContext : DbContext
 
             entity.Property(e => e.RegionName)
                 .IsRequired()
-                .HasMaxLength(50);
+                .HasMaxLength(50)
+                .UseCollation("SQL_Latin1_General_CP1_CI_AS");
         });
 
         modelBuilder.Entity<Town>(entity =>
@@ -78,7 +84,8 @@ public partial class CottagesContext : DbContext
 
             entity.Property(e => e.TownName)
                 .IsRequired()
-                .HasMaxLength(50);
+                .HasMaxLength(50)
+                .UseCollation("SQL_Latin1_General_CP1_CI_AS");
 
             entity.HasOne(d => d.RegionCodeNavigation).WithMany(p => p.Towns)
                 .HasForeignKey(d => d.RegionCode)

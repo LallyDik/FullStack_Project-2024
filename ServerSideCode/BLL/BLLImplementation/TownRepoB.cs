@@ -1,5 +1,6 @@
 ﻿using BLL.BLLApi;
 using BLL.BLLModels;
+using DAL;
 using DAL.DALImplementation;
 using System;
 using System.Collections.Generic;
@@ -11,15 +12,15 @@ namespace BLL.BLLImplementation;
 
 public class TownRepoB : ITownRepoB
 {
-    TownRepoD TownRepoD;
+    DALManager dal;
     public TownRepoB()
     {
-        TownRepoD = new TownRepoD();
+        dal = new DALManager();
     }
 
     public async Task<List<TownB>> GetAllTownsInRegionAsync(int regionCode)
     {
-        var TownsD = await TownRepoD.GetAllTownsAsync(regionCode);
+        var TownsD = await dal.Towns.GetAllTownsAsync(regionCode);
         var TownsB = new List<TownB>();
         foreach (var Town in TownsD)
         {

@@ -11,19 +11,19 @@ namespace DAL.DALImplementation;
 
 public class RegionRepoD : IRegionRepoD
 {
-    CottagesContext Context = new CottagesContext();
+    CottagesContext Context; 
 
-    public RegionRepoD()
+    public RegionRepoD(CottagesContext context)
     {
+        Context = context;
     }
-
-    //public RegionRepoD(CottagesContext context)
-    //{
-    //    Context = context;
-    //}
 
     public async Task<List<Region>> GetAllRegionsAsync()
     {
         return await Context.Regions.ToListAsync();
+    }
+    public string GetRegionName(int regionCode)
+    { 
+       return Context.Regions.Where(r => r.Code == regionCode).FirstOrDefault().RegionName; 
     }
 }

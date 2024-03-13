@@ -1,5 +1,6 @@
 ﻿using BLL.BLLApi;
 using BLL.BLLModels;
+using DAL;
 using DAL.DALImplementation;
 using System;
 using System.Collections.Generic;
@@ -11,14 +12,14 @@ namespace BLL.BLLImplementation;
 
 public class RegionRepoB : IRegionRepoB
 {
-    RegionRepoD RegionRepoD;
+    DALManager dal;
     public RegionRepoB()
     {
-        RegionRepoD = new RegionRepoD();
+        dal = new DALManager();
     }
     public async Task<List<RegionB>> GetAllRegionsAsync()
     {
-        var regionsD = await RegionRepoD.GetAllRegionsAsync();
+        var regionsD = await dal.Regions.GetAllRegionsAsync();
         var regionsB = new List<RegionB>();
         foreach (var region in regionsD)
         {

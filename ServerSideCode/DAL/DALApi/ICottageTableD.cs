@@ -1,6 +1,6 @@
 ﻿using Common;
 using DAL.DALModels;
-using DBAcsess;
+using DataAccessLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL.DALApi;
 
-public interface IRegionRepo
+public interface ICottageTableD
 {
-    Task<List<Region>> GetAllAsync();
+    Task<List<Cottage>> GetCottageTableAsync(BaseQueryParams cottageParams);
 }
