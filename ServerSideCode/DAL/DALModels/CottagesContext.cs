@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace DAL.DALModels;
 
 public partial class CottagesContext : DbContext

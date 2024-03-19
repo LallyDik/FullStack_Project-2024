@@ -20,11 +20,14 @@ public class TownRepoD : ITownRepoD
     public async Task<List<Town>> GetAllTownsAsync(int regionCode)
     {
         var towns = await Context.Towns.ToListAsync();
-        var t = towns.Where(t => t.RegionCode == regionCode).ToList();
         return towns.Where(t => t.RegionCode == regionCode).ToList();
     }
     public string GetTownName(int townCode)
     {
         return Context.Towns.Where(t => t.Code == townCode).FirstOrDefault().TownName;
+    }
+    public int GetTownCode(string townName)
+    {
+        return Context.Towns.Where(r => r.TownName == townName).FirstOrDefault().Code;
     }
 }

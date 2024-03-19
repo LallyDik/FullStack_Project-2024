@@ -1,24 +1,23 @@
-﻿using BLL.BLLApi;
+﻿using BLL;
+using BLL.BLLApi;
 using BLL.BLLModels;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Server.Controllers
+namespace Server.Controllers;
+
+[Route("api/[controller]")]
+[ApiController]
+public class RegionsController : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class RegionsController : ControllerBase
+    BLLManager bll;
+    public RegionsController()
     {
-        IRegionRepoB regionRepoB;
+        bll = new BLLManager();
+    }
 
-        public RegionsController(IRegionRepoB regionRepoB)
-        {
-            this.regionRepoB = regionRepoB;
-        }
-
-        [HttpGet]
-        public async Task<ActionResult<List<RegionB>>> GetRegionsAsync()
-        {
-            return await regionRepoB.GetAllRegionsAsync();
-        }
+    [HttpGet]
+    public async Task<ActionResult<List<RegionB>>> GetRegionsAsync()
+    {
+        return await bll.RegionRepo.GetAllRegionsAsync();
     }
 }

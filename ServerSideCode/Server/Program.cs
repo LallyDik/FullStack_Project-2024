@@ -1,5 +1,7 @@
 using BLL.BLLApi;
 using BLL.BLLImplementation;
+using DAL.DALApi;
+using DAL.DALImplementation;
 using DAL.DALModels;
 using DataAccess;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +11,9 @@ builder.Services.AddControllers();
 
 builder.Services.AddScoped<IRegionRepoB, RegionRepoB>();
 builder.Services.AddScoped<ITownRepoB, TownRepoB>();
-
+builder.Services.AddScoped<IPictureRepoD, PictureRepoD>();
+builder.Services.AddScoped<ICottagePageD, CottagePageD>();
+builder.Services.AddScoped<ICottageTableD, CottageTableD>();
 //builder.Services.AddCors(options =>
 //{
 //    options.AddPolicy("CORSPolicy",

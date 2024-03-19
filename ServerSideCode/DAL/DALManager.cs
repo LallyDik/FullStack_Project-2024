@@ -14,6 +14,7 @@ public class DALManager
     public RegionRepoD Regions { get;  }
     public TownRepoD Towns { get; }
     public CottageTableD Cottages { get; }
+    public CottagePageD CottagePage { get; }
     public DALManager()
     {
         CottagesContext Context = new CottagesContext();
@@ -21,6 +22,7 @@ public class DALManager
         Regions = new RegionRepoD(Context);
         Towns = new TownRepoD(Context);
         Cottages = new CottageTableD(Context);
+        CottagePage = new CottagePageD(Context);
     }
 }
 

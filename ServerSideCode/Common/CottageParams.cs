@@ -18,4 +18,16 @@ public class CottageParams:BaseQueryParams
 
     public int PriceToNight { get; set; }
 
+    public CottageParams()
+    {
+    }
+
+    public CottageParams(int regionCode, int townCode, int numOfBeds, int stars, int priceToNight)
+    {
+        RegionCode = regionCode;
+        TownCode = townCode;
+        NumOfBeds = numOfBeds;
+        Stars = stars;
+        PriceToNight = priceToNight;
+    }
 }

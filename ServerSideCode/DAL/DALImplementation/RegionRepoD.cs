@@ -26,4 +26,8 @@ public class RegionRepoD : IRegionRepoD
     { 
        return Context.Regions.Where(r => r.Code == regionCode).FirstOrDefault().RegionName; 
     }
+    public int GetRegionCode(string regionName)
+    {
+        return Context.Regions.Where(r => r.RegionName == regionName).FirstOrDefault().Code;
+    }
 }

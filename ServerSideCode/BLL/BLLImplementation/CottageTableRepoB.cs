@@ -31,7 +31,7 @@ public class CottageTableRepoB : ICottageTableRepoB
         }
         return await PagedList<CottageTableB>.ToPagedListAsync(cottagesTable.OrderBy(cottage => cottage.PriceToNight).AsQueryable(),
                cottageParams.PageNumber
-               , cottageParams.PageSize); ;
+               , cottageParams.PageSize); 
     }
 
 }

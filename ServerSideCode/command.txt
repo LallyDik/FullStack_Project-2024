@@ -8,4 +8,4 @@ Scaffold-DbContext 'Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\FullS
 
 
 
-Scaffold-DbContext Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename="C:\Users\הורוביץ לאה\Desktop\FullStack_project-2024\DB\DataBase.mdf";Integrated Security=True;Connect Timeout=30' Microsoft.EntityFrameworkCore.SqlServer –Context CottagesContext -OutputDir DALModels  -Force 
+Scaffold-DbContext 'Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename="C:\Users\הורוביץ לאה\Desktop\FullStack_project-2024\DB\DataBase.mdf";Integrated Security=True;Connect Timeout=30' Microsoft.EntityFrameworkCore.SqlServer –Context CottagesContext -OutputDir DALModels  -Force 

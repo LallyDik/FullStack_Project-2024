@@ -19,6 +19,12 @@ public class CottageTableD : ICottageTableD
     {
         Context = context;
     }
+    public List<int> GetConfirmsCodes()
+    {
+        var cottages = Context.Cottages.ToList();
+        return (from c in cottages
+                select c.ConfirmCode).ToList();
+    }
     public async Task<List<Cottage>> GetCottageTableAsync(BaseQueryParams queryParams)
     {
         var cottageParams = queryParams as CottageParams;
