@@ -30,6 +30,7 @@ public partial class Cottage
     public virtual Region RegionCodeNavigation { get; set; }
 
     public virtual Town TownCodeNavigation { get; set; }
+    public Cottage(){    }
     public Cottage(string cottageName, int regionCode, int townCode, int numOfBeds, int numOfRooms,
     int stars, int priceToNight, string description, int confirnCode)
     {
