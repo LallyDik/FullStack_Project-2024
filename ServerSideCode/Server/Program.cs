@@ -14,17 +14,17 @@ builder.Services.AddScoped<ITownRepoB, TownRepoB>();
 builder.Services.AddScoped<IPictureRepoD, PictureRepoD>();
 builder.Services.AddScoped<ICottagePageD, CottagePageD>();
 builder.Services.AddScoped<ICottageTableD, CottageTableD>();
-//builder.Services.AddCors(options =>
-//{
-//    options.AddPolicy("CORSPolicy",
-//        builder =>
-//        {
-//            builder
-//            .AllowAnyMethod()
-//            .AllowAnyHeader()
-//            .AllowAnyOrigin();
-//        });
-//});
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CORSPolicy",
+        builder =>
+        {
+            builder
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .AllowAnyOrigin();
+        });
+});
 
 
 DBActions actions = new DBActions(builder.Configuration);

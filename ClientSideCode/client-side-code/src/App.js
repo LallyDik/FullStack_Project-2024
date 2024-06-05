@@ -1,17 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
 import Fetch from './Fetch';
-
+import React  from 'react';
 function App() {
   return (
-    <div/* className="App"*/>
+   
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <Fetch></Fetch>
-        <a
+          <a
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
@@ -20,9 +19,11 @@ function App() {
           Learn React
           
         </a>
+        <Fetch></Fetch>
+      
 
       </header>
-    </div>
+
   );
 }
 
