@@ -18,6 +18,7 @@ public class RegionsController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<List<RegionB>>> GetRegionsAsync()
     {
+        await Console.Out.WriteLineAsync("tuytuy");
         return await bll.RegionRepo.GetAllRegionsAsync();
     }
 }
